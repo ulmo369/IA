@@ -19,9 +19,9 @@ columns = ["sepal length","sepal width","petal length","petal width", "class"]
 df = pd.read_csv(data_file_path, names=columns)
 print(df.head())
 
+#---------------------------------------------------------------------------------------------
 
 # Normalizar los datos
-# Normalizar las características "sepal length" y "sepal width"
 df["sepal lengthN"] = df["sepal length"] / df["sepal length"].max()
 df["sepal widthN"] = df["sepal width"] / df["sepal width"].max()
 
@@ -96,6 +96,11 @@ for epoch in range(max_epochs):
     
     #print(f"Epoch {epoch + 1}: Error = {error:.4f}")
     
+    """
+    np.allclose(oldparams, params) compara los valores de los parámetros de la época anterior
+    El punto es checar si los parametros son relativamente cercanos a los de la época anterior
+    Si son cercanos, entonces ya no hay necesidad de seguir entrenando, y se termina el ciclo.
+    """
     if np.allclose(oldparams, params) or epoch == max_epochs - 1:
         print("END!!!!!!!!!")
         break
