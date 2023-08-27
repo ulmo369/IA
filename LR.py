@@ -100,7 +100,7 @@ for epoch in range(max_epochs):
     np.allclose(oldparams, params) compara los valores de los parámetros de la época anterior
     El punto es checar si los parametros son relativamente cercanos a los de la época anterior
     Si son cercanos, entonces ya no hay necesidad de seguir entrenando, y se termina el ciclo.
-    
+
     """
     if np.allclose(oldparams, params) or epoch == max_epochs - 1:
         print("END!!!!!!!!!")
@@ -114,8 +114,6 @@ for s in samples:
     print(s)
 print("Final parameters:")
 print(params)
-print("final error:")
-#print(__errors__)
 #---------------------------------------------------------------------------------------------
 
 # Graficar los errores
